@@ -75,6 +75,7 @@
               if (cal_upd(ichg_par)%cond(ic)%targc /= soil(ielem)%texture) then
                 cond_met = "n"
               end if
+
             case ("plant")      !for hru
               do ipl = 1, pcom(ielem)%npl
                 pl_find = "n"
@@ -84,8 +85,16 @@
                   if (pl_find == "n") cond_met = "n"
                   exit
               end do
+
+            case ("plantdb")      !for hru
+              pl_find = "n"
+              if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                pl_find = "y"
+              end if
+                if (pl_find == "n") cond_met = "n"
+                exit
+          
             case ("pl_class")
-                
               do ipl = 1, pcom(ielem)%npl
                 icom = pcom(ielem)%pcomdb
                 if (cal_upd(ichg_par)%cond(ic)%targc /= lum(icom)%cal_group) then 
@@ -106,10 +115,16 @@
               !end do
               
             case ("landuse")    !for hru
-              if (cal_upd(ichg_par)%cond(ic)%targc /= hru(ielem)%land_use_mgt_c) then 
-                cond_met = "n"
-                exit
+              ! if (cal_upd(ichg_par)%cond(ic)%targc /= hru(ielem)%land_use_mgt_c) then 
+              !   cond_met = "n"
+              !   exit
+              ! end if
+              pl_find = "n"
+              if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                pl_find = "y"
               end if
+                if (pl_find == "n") cond_met = "n"
+                exit
               
             case ("cal_group")     !for hru    
               if (cal_upd(ichg_par)%cond(ic)%targc /= hru(ielem)%cal_group) then 
@@ -243,6 +258,127 @@
                     end if
                   end do
                 end do
+
+              case ("aeration")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%aeration = chg_par (pldb(ielem)%aeration, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do
+
+              case ("bio_e")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%bio_e = chg_par (pldb(ielem)%bio_e, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do
+
+              case ("hvsti")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%hvsti = chg_par (pldb(ielem)%hvsti, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do       
+
+              case ("blai")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%blai = chg_par (pldb(ielem)%blai, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do    
+
+              case ("days_mat")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%days_mat = NINT(chg_par (REAL(pldb(ielem)%days_mat), chg_typ, chg_val, &
+                          absmin, absmax))
+                  end if
+                end do     
+
+              case ("t_base")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%t_base = chg_par (pldb(ielem)%t_base, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do     
+
+              case ("t_opt")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%t_opt = chg_par (pldb(ielem)%t_opt, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do     
+
+              case ("rdmx")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%rdmx = chg_par (pldb(ielem)%rdmx, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do     
+
+              case ("cnyld")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%cnyld = chg_par (pldb(ielem)%cnyld, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do     
+
+              case ("cpyld")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%cpyld = chg_par (pldb(ielem)%cpyld, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do     
+
+              case ("pltnfr1")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%pltnfr1 = chg_par (pldb(ielem)%pltnfr1, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do     
+
+              case ("pltnfr2")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%pltnfr2 = chg_par (pldb(ielem)%pltnfr2, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do     
+
+              case ("pltpfr1")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%pltpfr1 = chg_par (pldb(ielem)%pltpfr1, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do     
+
+              case ("pltpfr2")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%pltpfr2 = chg_par (pldb(ielem)%pltpfr2, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do     
+
+              case ("nfix_co")
+                do ic = 1, cal_upd(ichg_par)%conds
+                  if (cal_upd(ichg_par)%cond(ic)%targc == pldb(ielem)%plantnm) then
+                    pldb(ielem)%nfix_co = chg_par (pldb(ielem)%nfix_co, chg_typ, chg_val, &
+                          absmin, absmax)
+                  end if
+                end do     
+
               end select
  
             case ("cli")

@@ -926,7 +926,6 @@
          case ("revap_min")
             aqu_dat(ielem)%revap_min = chg_par(aqu_dat(ielem)%revap_min,    &
                          chg_typ, chg_val, absmin, absmax)
-               
       !!LTE
          case ("cn2_lte")
             hlt_db(ielem)%cn2 = chg_par (hlt_db(ielem)%cn2, chg_typ, chg_val, absmin, absmax)
