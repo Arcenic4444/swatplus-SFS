@@ -22,6 +22,7 @@
       use constituent_mass_module
       use hru_module, only : ihru, hru
       use basin_module
+      use output_landscape_module
       use maximum_data_module
       use gwflow_module
       use soil_module
@@ -435,6 +436,7 @@
             end if
             
           end select
+          
         if (pco%fdcout == "y" .and. ob(icmd)%typ == "chandeg") then
           call flow_dur_curve
           !! compute flashiness index

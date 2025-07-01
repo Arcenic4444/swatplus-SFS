@@ -435,10 +435,15 @@
             
                   idp = pcom(j)%plcur(ipl)%idplt
                   if (pco%mgtout == "y") then
+                    !! write (2612, *) j, time%yrc, time%mo, time%day_mo,  pldb(idp)%plantnm, "    HARVEST",      &
+                    !!     phubase(j), pcom(j)%plcur(ipl)%phuacc, soil(j)%sw, biomass, soil1(j)%rsd(1)%m, &
+                    !!     sol_sumno3(j), sol_sumsolp(j), pl_yield%m, pcom(j)%plstr(ipl)%sum_n, &
+                    !!     pcom(j)%plstr(ipl)%sum_p, pcom(j)%plstr(ipl)%sum_tmp, pcom(j)%plstr(ipl)%sum_w, &
+                    !!     pcom(j)%plstr(ipl)%sum_a
                     write (2612, *) j, time%yrc, time%mo, time%day_mo,  pldb(idp)%plantnm, "    HARVEST",      &
                         phubase(j), pcom(j)%plcur(ipl)%phuacc, soil(j)%sw, biomass, soil1(j)%rsd(1)%m, &
-                        sol_sumno3(j), sol_sumsolp(j), pl_yield%m, pcom(j)%plstr(ipl)%sum_n, &
-                        pcom(j)%plstr(ipl)%sum_p, pcom(j)%plstr(ipl)%sum_tmp, pcom(j)%plstr(ipl)%sum_w, &
+                        sol_sumno3(j), sol_sumsolp(j), pl_yield%m, pl_yield%n, &
+                        pl_yield%p, pcom(j)%plstr(ipl)%sum_tmp, pcom(j)%plstr(ipl)%sum_w, &
                         pcom(j)%plstr(ipl)%sum_a
                   end if 
                 end if
@@ -554,8 +559,8 @@
                   if (pco%mgtout == "y") then
                     write (2612, *) j, time%yrc, time%mo, time%day_mo,  pldb(idp)%plantnm, "    HARV/KILL",        &
                         phubase(j), pcom(j)%plcur(ipl)%phuacc, soil(j)%sw, biomass, soil1(j)%rsd(1)%m,     &
-                        sol_sumno3(j), sol_sumsolp(j), pl_yield%m, pcom(j)%plstr(ipl)%sum_n,   &
-                        pcom(j)%plstr(ipl)%sum_p, pcom(j)%plstr(ipl)%sum_tmp, pcom(j)%plstr(ipl)%sum_w,     &
+                        sol_sumno3(j), sol_sumsolp(j), pl_yield%m, pl_yield%n, &
+                        pl_yield%p, pcom(j)%plstr(ipl)%sum_tmp, pcom(j)%plstr(ipl)%sum_w,     &
                         pcom(j)%plstr(ipl)%sum_a
                   end if 
                 end if

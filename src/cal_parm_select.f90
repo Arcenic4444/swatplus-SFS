@@ -59,7 +59,6 @@
       real :: rock = 0.                                     !                | 
 
       select case (chg_parm)
-
       case ("cn2")
         cn2(ielem) = chg_par (cn2(ielem), chg_typ, chg_val, absmin, absmax)
         call curno (cn2(ielem), ielem)
@@ -123,10 +122,8 @@
                          chg_typ, chg_val, absmin, absmax)
         
       case ("esco")
-        write(*,*) '----------esco_old', hru(ielem)%hyd%esco
         hru(ielem)%hyd%esco = chg_par (hru(ielem)%hyd%esco,             & 
                          chg_typ, chg_val, absmin, absmax)
-        write(*,*) '----------esco', hru(ielem)%hyd%esco
          
       case ("epco")
         hru(ielem)%hyd%epco = chg_par (hru(ielem)%hyd%epco,             & 
@@ -536,6 +533,12 @@
         
         case ("bc4")
           ch_nut(ielem)%bc4 = chg_par(ch_nut(ielem)%bc4,                &
+                         chg_typ, chg_val, absmin, absmax)
+       case ("k_n")
+          ch_nut(ielem)%k_n = chg_par(ch_nut(ielem)%k_n,                &
+                         chg_typ, chg_val, absmin, absmax)
+       case ("k_p")
+          ch_nut(ielem)%k_p = chg_par(ch_nut(ielem)%k_p,                &
                          chg_typ, chg_val, absmin, absmax)
         case ("rch_dox")
           ch(ielem)%rch_dox = chg_par(ch(ielem)%rch_dox,                &
@@ -1035,7 +1038,12 @@
           do jj = 1, soil(ielem)%nly
             soil1(ielem)%mp(ly)%lab = chg_par (soil1(ielem)%mp(ly)%lab, chg_typ, chg_val, absmin, absmax)
           end do
-          
+
+        case ("nitrate")
+          do jj = 1, soil(ielem)%nly
+            soil1(ielem)%mn(ly)%no3 = chg_par (soil1(ielem)%mn(ly)%no3, chg_typ, chg_val, absmin, absmax)
+          end do   
+
         case ("hum_c_n")
           do jj = 1, soil(ielem)%nly
             soil1(ielem)%hact(ly)%n = chg_par (soil1(ielem)%hact(ly)%n, chg_typ, chg_val, absmin, absmax)

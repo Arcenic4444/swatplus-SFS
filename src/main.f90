@@ -124,7 +124,6 @@
       
       ! save initial time settings for soft calibration runs
       time_init = time
-
       !! simulate watershed processes
       if (time%step < 0) then
         !! export coefficient - average annual

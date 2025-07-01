@@ -47,6 +47,10 @@
       do ichg_par = 1, db_mx%cal_upd
         do ispu = 1, cal_upd(ichg_par)%num_elem
           ielem = cal_upd(ichg_par)%num(ispu)
+          if (ielem==0) then
+            cond_met = "n"
+            exit
+          end if
           chg_parm = cal_upd(ichg_par)%name
           chg_typ = cal_upd(ichg_par)%chg_typ
           chg_val = cal_upd(ichg_par)%val
@@ -134,6 +138,8 @@
             end select
           end do    ! ic - conditions
 
+
+          
           if (cond_met == "y") then
             if (cal_parms(num_db)%ob_typ /= "sol" .and. cal_parms(num_db)%ob_typ /= "cli" .and. &
               cal_parms(num_db)%ob_typ /= "plt" .and. cal_parms(num_db)%ob_typ /= "rdt") then

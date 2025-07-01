@@ -72,6 +72,7 @@
                                                                     hls_d(j), lum(ilu)%plant_cov, lum(ilu)%mgt_ops  
             end if
           end if
+
           if (pco%pw_hru%d == "y") then
             write (2040,101) time%day, time%mo, time%day_mo, time%yrc, j, ob(iob)%gis_id, ob(iob)%name, hpw_d(j),                  & 
                                                                           lum(ilu)%plant_cov, lum(ilu)%mgt_ops  !! plant weather day 

@@ -247,7 +247,6 @@
           end if
           
           call command              !! command loop 
-          
           ! reset base0 heat units and yr_skip at end of year for southern hemisphere
           ! near winter solstace (winter solstice is around June 22)
           if (time%day == 181) then

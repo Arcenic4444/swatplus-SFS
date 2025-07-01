@@ -90,7 +90,6 @@
         slr(i)%start_yr = iyr
         
         backspace (108)
-
       if (iyr > time%yrc) then
         slr(i)%yrs_start = iyr - time%yrc
       else

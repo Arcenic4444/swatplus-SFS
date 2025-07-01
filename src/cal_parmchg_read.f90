@@ -148,7 +148,6 @@
                 cal_upd(i)%num(ie) = ie
             end do
           else
-
             call define_unit_elements (nspu, ielem1)
             allocate (cal_upd(i)%num(ielem1), source = 0)
             cal_upd(i)%num = defunit_num
