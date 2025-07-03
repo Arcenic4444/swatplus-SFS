@@ -514,11 +514,27 @@
        case ("rk5")
           ch_nut(ielem)%rs2 = chg_par(ch_nut(ielem)%rs2,                &
                          chg_typ, chg_val, absmin, absmax) 
-        
+
        case ("rk6")
           ch_nut(ielem)%rk6 = chg_par(ch_nut(ielem)%rk6,                &
+                         chg_typ, chg_val, absmin, absmax)      
+
+       case ("rhoq")
+          ch_nut(ielem)%rhoq = chg_par(ch_nut(ielem)%rhoq,                &
                          chg_typ, chg_val, absmin, absmax)
-        
+
+       case ("ai1")
+          ch_nut(ielem)%ai1 = chg_par(ch_nut(ielem)%ai1,                &
+                         chg_typ, chg_val, absmin, absmax)
+                         
+       case ("ai2")
+          ch_nut(ielem)%ai2 = chg_par(ch_nut(ielem)%ai2,                &
+                         chg_typ, chg_val, absmin, absmax)
+                           
+       case ("p_n")
+          ch_nut(ielem)%p_n = chg_par(ch_nut(ielem)%p_n,                &
+                         chg_typ, chg_val, absmin, absmax)
+
        case ("bc1")
           ch_nut(ielem)%bc1 = chg_par(ch_nut(ielem)%bc1,                &
                          chg_typ, chg_val, absmin, absmax)
