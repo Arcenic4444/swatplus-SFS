@@ -126,7 +126,14 @@
       type (harvest_operation), dimension(:), allocatable :: harvop_db
       type (harvest_operation) :: harvop
       type (harvest_operation) :: hkop
-      
+
+      type fertilize_operation
+        real :: precip_thres = 10.         !(kg/ha)/(kg/ha)   |harvest index target specified at harvest
+        real :: sw_thres = 0.9            !none              |harvest efficiency: fraction of harvested yield that is removed 
+                                                       !the remainder becomes residue on the soil surface
+      end type fertilize_operation
+      type (fertilize_operation) :: fert_thresop
+
       type grazing_operation
         character (len=40) :: name = ""
         character (len=40) :: fertnm = " "

@@ -30,6 +30,7 @@
       use plant_module
       use time_module
       use climate_module, only: w
+      use soil_module, only : soil
 
       implicit none
 
@@ -50,7 +51,7 @@
       
       do while(mgt%mon == time%mo .and. mgt%day == time%day_mo)
         if (mgt%op == "fert      ") then
-          if (w%precip > 10.0) then
+          if (w%precip > fert_thresop%precip_thres .or. soil(j)%sw > fert_thresop%sw_thres * soil(j)%sumfc) then
             if (.not. allocated(delayed_fert(j)%fert_type)) then
               allocate(delayed_fert(j)%fert_type(100))     
               allocate(delayed_fert(j)%fert_amount(100))

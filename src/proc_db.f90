@@ -23,6 +23,7 @@
       call mgt_read_fireops
       call mgt_read_mgtops
       call mgt_read_puddle
+      call mgt_read_fertops
       
       !! read structural operations files
       call sdr_read

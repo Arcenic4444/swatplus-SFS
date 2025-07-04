@@ -523,6 +523,10 @@
           ch_nut(ielem)%rhoq = chg_par(ch_nut(ielem)%rhoq,                &
                          chg_typ, chg_val, absmin, absmax)
 
+       case ("ai0")
+          ch_nut(ielem)%ai0 = chg_par(ch_nut(ielem)%ai0,                &
+                         chg_typ, chg_val, absmin, absmax)
+
        case ("ai1")
           ch_nut(ielem)%ai1 = chg_par(ch_nut(ielem)%ai1,                &
                          chg_typ, chg_val, absmin, absmax)

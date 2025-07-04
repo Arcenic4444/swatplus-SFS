@@ -54,8 +54,7 @@
 		<Filter Name="Header Files" Filter="fi;fd;h;inc"/>
 		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
-			<File RelativePath=".\src\actions.f90">
-			</File>
+			<File RelativePath=".\src\actions.f90"/>
 			<File RelativePath=".\src\albedo.f90"/>
 			<File RelativePath=".\src\allo_mpdf_fert.f90"/>
 			<File RelativePath=".\src\allocate_parms.f90"/>
@@ -214,7 +213,8 @@
 			<File RelativePath=".\src\cs_cha_read.f90"/>
 			<File RelativePath=".\src\cs_data_module.f90"/>
 			<File RelativePath=".\src\cs_divert.f90"/>
-			<File RelativePath=".\src\cs_fert.f90"/>
+			<File RelativePath=".\src\cs_fert.f90">
+			</File>
 			<File RelativePath=".\src\cs_fert_read.f90"/>
 			<File RelativePath=".\src\cs_fert_wet.f90"/>
 			<File RelativePath=".\src\cs_hru_init.f90"/>
@@ -272,10 +272,8 @@
 			<File RelativePath=".\src\exco_read_pest.f90"/>
 			<File RelativePath=".\src\exco_read_salt.f90"/>
 			<File RelativePath=".\src\fcgd.f90"/>
-			<File RelativePath=".\src\fert_after_prec.f90">
-			</File>
-			<File RelativePath=".\src\fert_parm_read.f90">
-			</File>
+			<File RelativePath=".\src\fert_after_prec.f90"/>
+			<File RelativePath=".\src\fert_parm_read.f90"/>
 			<File RelativePath=".\src\fertilizer_data_module.f90"/>
 			<File RelativePath=".\src\field_read.f90"/>
 			<File RelativePath=".\src\flow_dur_curve.f90"/>
@@ -352,8 +350,7 @@
 			<File RelativePath=".\src\hydout_output.f90"/>
 			<File RelativePath=".\src\hydro_init.f90"/>
 			<File RelativePath=".\src\hydrograph_module.f90"/>
-			<File RelativePath=".\src\hydrol_read.f90">
-			</File>
+			<File RelativePath=".\src\hydrol_read.f90"/>
 			<File RelativePath=".\src\hydrology_data_module.f90"/>
 			<File RelativePath=".\src\icl.f90"/>
 			<File RelativePath=".\src\input_file_module.f90"/>
@@ -366,8 +363,7 @@
 			<File RelativePath=".\src\lsreg_output.f90"/>
 			<File RelativePath=".\src\lsu_output.f90"/>
 			<File RelativePath=".\src\lsu_read_elements.f90"/>
-			<File RelativePath=".\src\main.f90">
-			</File>
+			<File RelativePath=".\src\main.f90"/>
 			<File RelativePath=".\src\mallo_control.f90"/>
 			<File RelativePath=".\src\manure_allocation_module.f90"/>
 			<File RelativePath=".\src\manure_allocation_read.f90"/>
@@ -383,20 +379,22 @@
 			<File RelativePath=".\src\mgt_mpdf_fert.f90"/>
 			<File RelativePath=".\src\mgt_newtillmix.f90"/>
 			<File RelativePath=".\src\mgt_newtillmix_wet.f90"/>
-			<File RelativePath=".\src\mgt_operations_module.f90"/>
-			<File RelativePath=".\src\mgt_operatn.f90">
+			<File RelativePath=".\src\mgt_operations_module.f90">
 			</File>
+			<File RelativePath=".\src\mgt_operatn.f90"/>
 			<File RelativePath=".\src\mgt_plantop.f90"/>
 			<File RelativePath=".\src\mgt_read_chemapp.f90"/>
+			<File RelativePath=".\src\mgt_read_fertops.f90">
+			</File>
 			<File RelativePath=".\src\mgt_read_fireops.f90"/>
 			<File RelativePath=".\src\mgt_read_grazeops.f90"/>
 			<File RelativePath=".\src\mgt_read_harvops.f90"/>
 			<File RelativePath=".\src\mgt_read_irrops.f90"/>
-			<File RelativePath=".\src\mgt_read_mgtops.f90"/>
+			<File RelativePath=".\src\mgt_read_mgtops.f90">
+			</File>
 			<File RelativePath=".\src\mgt_read_puddle.f90"/>
 			<File RelativePath=".\src\mgt_read_sweepops.f90"/>
-			<File RelativePath=".\src\mgt_sched.f90">
-			</File>
+			<File RelativePath=".\src\mgt_sched.f90"/>
 			<File RelativePath=".\src\mgt_tillfactor.f90"/>
 			<File RelativePath=".\src\mgt_transplant.f90"/>
 			<File RelativePath=".\src\mpdf_fert_read.f90"/>

@@ -190,6 +190,7 @@
 !! operation scheduling
       type input_ops
        character(len=25) :: harv_ops = "harv.ops"
+       character(len=25) :: fert_ops = "fert.ops"
        character(len=25) :: graze_ops = "graze.ops"
        character(len=25) :: irr_ops = "irr.ops"
        character(len=25) :: chem_ops = "chem_app.ops"
