@@ -51,25 +51,28 @@
       
       do while(mgt%mon == time%mo .and. mgt%day == time%day_mo)
         if (mgt%op == "fert      ") then
-          if (w%precip > fert_thresop%precip_thres .or. soil(j)%sw > fert_thresop%sw_thres * soil(j)%sumfc) then
+          if (w%precip > fert_thresop%precip_thres .or. soil(j)%sw > fert_thresop%sw_thres * soil(j)%sumul) then
             if (.not. allocated(delayed_fert(j)%fert_type)) then
-              allocate(delayed_fert(j)%fert_type(100))     
-              allocate(delayed_fert(j)%fert_amount(100))
-              allocate(delayed_fert(j)%fert_method(100))
+              allocate(delayed_fert(j)%fert_type(200))     
+              allocate(delayed_fert(j)%fert_amount(200))
+              allocate(delayed_fert(j)%fert_method(200))
               delayed_fert(j)%num_fert = 0
               fert_count = 0
             end if
-            
-            delayed_fert(j)%num_fert = delayed_fert(j)%num_fert + 1
-            i = delayed_fert(j)%num_fert
-            delayed_fert(j)%fert_type(i) = mgt%op_char
-            delayed_fert(j)%fert_amount(i) = mgt%op3
-            delayed_fert(j)%fert_method(i) = mgt%op_plant
-            hru(j)%cur_op = hru(j)%cur_op + 1
-            if (hru(j)%cur_op > sched(isched)%num_ops) then
-              hru(j)%cur_op = 1
-            end if
-            mgt = sched(isched)%mgt_ops(hru(j)%cur_op)
+            if (delayed_fert(j)%num_fert>199) then
+              call fert_after_prec(isched, fert_count)
+            else
+              delayed_fert(j)%num_fert = delayed_fert(j)%num_fert + 1
+              i = delayed_fert(j)%num_fert
+              delayed_fert(j)%fert_type(i) = mgt%op_char
+              delayed_fert(j)%fert_amount(i) = mgt%op3
+              delayed_fert(j)%fert_method(i) = mgt%op_plant
+              hru(j)%cur_op = hru(j)%cur_op + 1
+              if (hru(j)%cur_op > sched(isched)%num_ops) then
+                hru(j)%cur_op = 1
+              end if
+              mgt = sched(isched)%mgt_ops(hru(j)%cur_op)
+            endif
           else
             if (allocated(delayed_fert(j)%fert_type)) then
               call fert_after_prec(isched, fert_count)

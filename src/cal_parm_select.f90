@@ -36,7 +36,9 @@
       use plant_module
       use plant_data_module
       use gwflow_module
-      
+      use gwflow_module
+      use mgt_operations_module, only :fert_thresop
+
       implicit none
 
       character(len=16), intent (in) :: chg_parm            !                |               
@@ -63,6 +65,12 @@
         cn2(ielem) = chg_par (cn2(ielem), chg_typ, chg_val, absmin, absmax)
         call curno (cn2(ielem), ielem)
 
+      case ("precip_thres") 
+        fert_thresop%precip_thres = chg_par (fert_thresop%precip_thres,           &
+                          chg_typ, chg_val, absmin, absmax)
+      case ("soilwater_thres") 
+        fert_thresop%sw_thres = chg_par (fert_thresop%sw_thres,           &
+                          chg_typ, chg_val, absmin, absmax)
       !! HRU  
       case ("biomix") 
         hru(ielem)%hyd%biomix = chg_par (hru(ielem)%hyd%biomix,           &
